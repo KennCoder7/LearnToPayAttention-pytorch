@@ -1,6 +1,6 @@
 # Introduction
 PyTorch implementation of ICLR 2018 paper [Learn To Pay Attention](https://openreview.net/forum?id=HyzbhfWRW).  
-Including visualization of attention map.  
+Including two attention method (dot product and parametrise) and visualization of attention map.  
 Due to the limited computational power, the VGG-type CNN net is condensed as follow:  
 ```
 C64*3*3-C128*3*3-C256*3*3-P2*2-(Att1)-C512*3*3-P2*2-(Att2)-C512*3*3-P2*2-(Att3)-C512*3*3-P2*2-C512*3*3-P2*2-L(512)-L(10)
