@@ -42,9 +42,7 @@ class VGG_Att(nn.Module):
             concat_f = torch.cat([att1_f, att2_f, att3_f], 1)
 
             att1_map = self.__unsample_1(att1_map.unsqueeze(1)).squeeze(1)
-            print('0', att2_map.shape)
             att2_map = self.__unsample_2(att2_map.unsqueeze(1)).squeeze(1)
-            print('1', att2_map.shape)
             att3_map = self.__unsample_3(att3_map.unsqueeze(1)).squeeze(1)
 
             return self.__classifier(concat_f), att1_map, att2_map, att3_map
@@ -99,7 +97,7 @@ args = parser.parse_args()
 
 def main():
     vgg = torch.load(r'D:\pyproject\data\LTPA-log\model\model-vgg.pkl').to("cuda:0")
-    vgg_att = VGG_Att(vgg, method='dp').to("cuda:0")
+    vgg_att = VGG_Att(vgg, method='pc').to("cuda:0")
     transform = transforms.Compose(
         [
             transforms.RandomHorizontalFlip(),
@@ -131,14 +129,15 @@ def main():
         if test_loss > loss:
             test_loss = loss
             if args.save_model:
-                torch.save(vgg_att, r'D:\pyproject\data\LTPA-log\model\model-vgg-att-dp.pkl')
+                torch.save(vgg_att, r'D:\pyproject\data\LTPA-log\model\model-vgg-att.pkl')
         scheduler.step(epoch)
+        visualization(nums=3)
 
 
 def visualization(nums):
     classes = ('plane', 'car', 'bird', 'cat',
                'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
-    vgg_att = torch.load(r'D:\pyproject\data\LTPA-log\model\model-vgg-att-dp.pkl').to("cuda:0")
+    vgg_att = torch.load(r'D:\pyproject\data\LTPA-log\model\model-vgg-att.pkl').to("cuda:0")
     vgg_att.eval()
     transform1 = transforms.Compose(
         [
@@ -178,5 +177,4 @@ def visualization(nums):
 
 
 if __name__ == '__main__':
-    # main()
-    visualization(5)
+    main()
