@@ -8,7 +8,7 @@ CIFAR-10:
 
 Due to the limited computational power, the VGG-type CNN net is condensed as follow:  
 ```
-C64*3*3-C128*3*3-C256*3*3-P2*2-(Att1)-C512*3*3-P2*2-(Att2)-C512*3*3-P2*2-(Att3)-C512*3*3-P2*2-C512*3*3-P2*2-L(512)-L(10)
+C64*3*3-C128*3*3-C256*3*3-P2*2-(Att1)-C512*3*3-P2*2-(Att2)-C512*3*3-P2*2-(Att3)-C512*3*3-P2*2-C512*3*3-P2*2-L512-L10
 ```
 # Require
 pytorch == 1.2.0
