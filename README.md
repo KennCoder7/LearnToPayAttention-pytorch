@@ -2,9 +2,9 @@
 PyTorch implementation of ICLR 2018 paper [Learn To Pay Attention](https://openreview.net/forum?id=HyzbhfWRW).  
 Including two attention method (dot product and parametrise) and visualization of attention map.  
 CIFAR-10:  
-![frog](https://github.com/KennCoder7/LearnToPayAttention/blob/main/frog.png)
-![bird](https://github.com/KennCoder7/LearnToPayAttention/blob/main/bird.png)
-![dog](https://github.com/KennCoder7/LearnToPayAttention/blob/main/dog.png)  
+![frog](https://github.com/KennCoder7/LearnToPayAttention-pytorch/blob/main/frog.png)
+![bird](https://github.com/KennCoder7/LearnToPayAttention-pytorch/blob/main/bird.png)
+![dog](https://github.com/KennCoder7/LearnToPayAttention-pytorch/blob/main/dog.png)  
 
 Due to the limited computational power, the VGG-type CNN net is condensed as follow:  
 ```
